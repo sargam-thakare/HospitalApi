@@ -1,8 +1,10 @@
 
 
 const mongoose=require('mongoose')
-mongoose.connect( "mongodb://127.0.0.1:27017/HospitalDB")
-  
+//mongoose.connect( "mongodb://127.0.0.1:27017/HospitalDB")
+mongoose.connect(process.env.MONGODB_CONNECT_URL)
+
+
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, "Error connecting to MongoDB"));
